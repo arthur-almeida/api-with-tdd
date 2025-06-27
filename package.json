@@ -2,7 +2,9 @@
   "type": "module",
   "scripts": {
     "dev": "node --experimental-transform-types --no-warnings --watch src/app.ts",
-    "test:integration": "vitest tests/integration/**/*.test.ts"
+    "test": "vitest",
+    "test:integration": "vitest tests/integration/**/*.test.ts",
+    "test:unit": "vitest tests/unit/**/*.spec.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
