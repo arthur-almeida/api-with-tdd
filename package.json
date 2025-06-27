@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-transform-types --no-warnings --watch src/app.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.6",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.1",
+    "vitest": "^3.2.4"
+  }
+}
