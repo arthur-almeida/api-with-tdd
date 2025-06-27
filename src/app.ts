@@ -1,14 +1,6 @@
 import express from "express";
+import { router } from "./routes/index.ts";
 
 export const app = express();
 app.use(express.json());
-
-app.get("/products", (req, res) => {
-  res.json([
-    {
-      name: "Default product",
-      description: "Product description",
-      price: 100,
-    },
-  ]);
-});
+app.use("/", router);
