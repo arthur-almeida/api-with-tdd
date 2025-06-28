@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "node --experimental-transform-types --no-warnings --watch src/app.ts",
+    "dev": "node --experimental-transform-types --no-warnings --watch src/server.ts",
     "test": "vitest",
     "test:integration": "vitest tests/integration/**/*.test.ts",
     "test:unit": "vitest tests/unit/**/*.spec.ts"
@@ -16,6 +16,7 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1"
   }
 }
