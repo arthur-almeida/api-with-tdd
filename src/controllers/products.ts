@@ -8,7 +8,14 @@ export class ProductsController {
   }
 
   async get(_req: any, res: any) {
-    const products = await this.Product.find({});
-    res.json(products);
+    try {
+      const products = await this.Product.find({});
+      res.json(products);
+    } catch (error: any) {
+      res.status(400).json({
+        status: "error",
+        message: error.message,
+      });
+    }
   }
 }
