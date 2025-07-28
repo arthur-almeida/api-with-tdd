@@ -1,11 +1,14 @@
+import type { Product } from "../models/product.ts";
+
 export class ProductsController {
-  get(_req: any, res: any) {
-    return res.json([
-      {
-        name: "Default product",
-        description: "Product description",
-        price: 100,
-      },
-    ]);
+  private readonly Product: typeof Product;
+
+  constructor(product: typeof Product) {
+    this.Product = product;
+  }
+
+  async get(_req: any, res: any) {
+    const products = await this.Product.find({});
+    res.json(products);
   }
 }

@@ -1,4 +1,5 @@
 import { ProductsController } from "../../../src/controllers/products.ts";
+import { Product } from "../../../src/models/product.ts";
 
 describe("Controllers: Products", () => {
   const defaultProduct = {
@@ -8,15 +9,20 @@ describe("Controllers: Products", () => {
   };
 
   describe("get() products", () => {
-    it("should return a list of products", () => {
+    it("should return a list of products", async () => {
       const request = vitest.fn();
       const response = {
         json: vitest.fn(),
       };
-      const productsController = new ProductsController();
+      const findSpy = vitest
+        .spyOn(Product, "find")
+        .mockResolvedValueOnce([defaultProduct]);
 
-      productsController.get(request, response);
+      const productsController = new ProductsController(Product);
 
+      await productsController.get(request, response);
+
+      expect(findSpy).toHaveBeenCalledWith({});
       expect(response.json).toHaveBeenCalled();
       expect(response.json).toHaveBeenCalledWith([defaultProduct]);
     });
